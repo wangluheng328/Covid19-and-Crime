@@ -1,0 +1,11 @@
+NYPD Compliant Data Historic (crime.csv) is manually exported from NYC Open Data website (https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i)
+Covid-19 Data (epid.csv) is manually exported from Google Covid-19 Open Data Repository (https://health.google.com/covid-19/open-data/raw-data)
+
+The two dataset are then uploaded to peel with command:
+scp crime.csv hm1920@peel.hpc.nyu.edu:/home/hm1920
+scp epid.csv hm1920@peel.hpc.nyu.edu:/home/hm1920
+
+The two dataset are then put to hdfs with command: 
+hdfs dfs -put crime.csv project_data
+hdfs dfs -put epid.csv project_data
+
