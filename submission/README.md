@@ -9,7 +9,7 @@
 
   **kyle**:\
     initial cleaning code by kyle ma using mapreduce\
-    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code\
+    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code
 ## profiling_code:
   **wes**:\
     initial profiling code by wesley wang using mapreduce\
@@ -17,19 +17,19 @@
 
   **kyle**:\
     initial profiling code by kyle ma using mapreduce\
-    **CountRecs.java**, **CountRecsMapper.java**, **CountRecsReducer.java** are the profiling code\
+    **CountRecs.java**, **CountRecsMapper.java**, **CountRecsReducer.java** are the profiling code
+
+
 ## ana_code:
-  additional_process
-    additional_process.SCALA
-    the code unifies the date column format for both crime_new.csv and epid_new.csv that generated
-    from the initial cleaning process
-    so the date from two data set matches in terms of range and type
-    it also drops columns irrelevant to future analysis
-    it then output three csv files for future analysis
-      crime_date.csv: data from crime_new.csv grouped by date and count total incident per date
-      crime_type.csv: data from crime_new.csv grouped by date and crime type then count total incident per date for each type
-      epid_clean.csv: data from epid_new.csv without unnecessary columns and uniformed date format
-    a few demonstrations would be shown on the interface in the process
+  - **additional_process**
+    - **additional_process.SCALA**
+    	*the code unifies the date column format for both crime_new.csv and epid_new.csv that generated from the initial cleaning process so the date from two data set matches in terms of range and type
+    	*it also drops columns irrelevant to future analysis
+    	- it then output three csv files for future analysis
+      		*crime_date.csv: data from crime_new.csv grouped by date and count total incident per date
+      		*crime_type.csv: data from crime_new.csv grouped by date and crime type then count total incident per date for each type
+      		*epid_clean.csv: data from epid_new.csv without unnecessary columns and uniformed date format
+ 	*a few demonstrations would be shown on the interface in the process
   basic_statistics:
     allcrime_day_stats.SCALA: read in both crime and covid data;
 			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
