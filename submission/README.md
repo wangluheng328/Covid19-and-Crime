@@ -152,7 +152,18 @@ How to run my code:
    make sure that both epid_new.csv and crime_new.csv are also put on the cluster\
    run by open spark and type command :load additional_process.scala\
    a few desmonstration will show on the command prompt and three output csv will be created
-7. Basic statistics\
+7. Basic statistics
+    - **all data files needed are already in HDFS of lw2534**
+    - allcrime_day_stats.scala
+      - put allcrime_day_stats.scala from ana_code/basic_statistics folder to hdfs
+      - run by open spark and type command :load allcrime_day_stats.scala 
+      - the statistics for crime and covid will be printed out (see `bs_allcrime_day_stats.png`)
+    - allcrime_newdeceased_month_stats.scala
+      - similar to above, just use :load allcrime_newdeceased_month_stats.scala
+      - the stats for mean crime and mean new_deceased by month are printed out (see `bs_allcrime_new_deceased_month.png`)
+    - allcrime_newconfirmed_month_stats.scala
+      - similar to above, just use :load allcrime_newconfirmed_month_stats.scala
+      - the stats for mean crime and mean new_confirmed by month are printed out (see `bs_allcrime_new_confirmed_month.png`)
 8. Additional Analysis
     - crime_month_before_after
       - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
@@ -166,6 +177,21 @@ How to run my code:
       - makesure that crime_new.csv is also on hdfs
       - run by open spark and type command :load crime_weekday_before_after.scala 
       - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
+    - covid_month_day_series.scala
+      - put covid_month_day_series.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load covid_month_day_series.scala 
+      - note that there is not outputting printout for this one, instead if will creates 10 directories in the /stage2 folder
+      - please refer to screenshots named `aa_timeseries_1.png` and `aa_timeseries_2.png`
+    - crime_day_night.scala
+      - put crime_day_night.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load crime_day_night.scala 
+      - there will be two dataframes being printed
+      - please refer to screenshots named `aa_daynight_before_after.png`
+    - crime_covid_regression.scala
+      - put crime_covid_regression.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load crime_covid_regression.scala 
+      - there will be several outputs of the regression model being printed
+      - please refer to screenshots named `aa_regression.png`
       
 
 9. Correlation Analysis
