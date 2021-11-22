@@ -133,21 +133,17 @@ How to run my code:
    result can be found in project_data/crime.csv and project_data/epid.csv\
    due to storage issue data folder is not included in the assignment submission\
    they can be found on the hdfs
-2. run the mapreduce job Clean.java in etl_code/wes following the normal procedure\
-   of running mapreduce jobs on nyu cluster\
+2. run the mapreduce job Clean.java in etl_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
    the input is: crime.csv\
    the output is cleaned data: crime_new.csv
-3. run the mapreduce job Clean.java in etl_code/kyle following the normal procedure\
-   of running mapreduce jobs on nyu cluster\
+3. run the mapreduce job Clean.java in etl_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
    the input is: epid.csv\
    the output is cleaned data: epid_new.csv
-4. run the mapreduce job CountRecs.java in profiling_code/wes following the normal procedure\
-   of running mapreduce jobs on nyu cluster\
+4. run the mapreduce job CountRecs.java in profiling_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
    the input is: crime_new.csv\
    the output is row count of the input data\
    this gives a better idea of the output csv files from Clean.java
-5. run the mapreduce job CountRecs.java in profiling_code/kyle following the normal procedure\
-   of running mapreduce jobs on nyu cluster\
+5. run the mapreduce job CountRecs.java in profiling_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
    the input is: epid_new.csv\
    the output is row count of the input data\
    this gives a better idea of the output csv files from Clean.java
@@ -157,7 +153,7 @@ How to run my code:
    run by open spark and type command :load additional_process.scala\
    a few desmonstration will show on the command prompt and three output csv will be created
 7. Basic statistics\
-8. Additional Analysis\
+8. Additional Analysis
     - crime_month_before_after
       - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
       - make sure that crime_new.csv is also on hdfs
