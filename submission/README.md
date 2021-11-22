@@ -26,7 +26,7 @@
       * the code unifies the date column format for both crime_new.csv and epid_new.csv that generated from the initial cleaning process so the date from two data set matches in terms of range and type
       * it also drops columns irrelevant to future analysis
       - **it then output three csv files for future analysis**
-      	- crime_date.csv: data from crime_new.csv grouped by date and count total incident per date
+        - crime_date.csv: data from crime_new.csv grouped by date and count total incident per date
       	- crime_type.csv: data from crime_new.csv grouped by date and crime type then count total incident per date for each type
       	- epid_clean.csv: data from epid_new.csv without unnecessary columns and uniformed date format
       * a few demonstrations would be shown on the interface in the process
@@ -72,10 +72,10 @@
       * the code finds correlation between daily newconfirmed covide cases and the number of four types of crime incidents
       * the four incidents are Robbery, Felony assult, Sex crimes, and Harrassment 2.
       - **the result is printed**:
-        - Robbery Correlation is: -0.37035180358283887
-	- FELONY ASSAULT Correlation is: -0.46913761145316174
-	- SEX CRIMES Correlation is: -0.45638676093112335
-	- HARRASSMENT 2 Correlation is: -0.6489481870609697
+      	- Robbery Correlation is: -0.37035180358283887
+        - FELONY ASSAULT Correlation is: -0.46913761145316174
+        - SEX CRIMES Correlation is: -0.45638676093112335
+        - HARRASSMENT 2 Correlation is: -0.6489481870609697
   - **additional_analysis**
     - **crime_month_before_after.SCALA**
       * check which month do crime happen most frequently before and after covid
