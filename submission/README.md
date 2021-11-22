@@ -24,18 +24,40 @@ ana_code:
     it also drops columns irrelevant to future analysis
     it then output three csv files for future analysis
       crime_date.csv: data from crime_new.csv grouped by date and count total incident per date
-      crime_type.csv: data from crime_new.csv grouped by date and type then count total incident per date for each type
+      crime_type.csv: data from crime_new.csv grouped by date and crime type then count total incident per date for each type
       epid_clean.csv: data from epid_new.csv without unnecessary columns and uniformed date format
     a few demonstrations would be shown on the interface in the process
-  basic_statistics: ToDo
-    allcrime_day_stats.SCALA:
-    allcrime_newconfirmed_month_stats.SCALA:
-    allcrime_newdeceased_month_stats.SCALA:
+  basic_statistics:
+    allcrime_day_stats.SCALA: read in both crime and covid data;
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			merge covid and crime dataframes and get basic statistics for both (mean, median, max, min, etc.)
+    allcrime_newconfirmed_month_stats.SCALA:read in both crime and covid data;
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			group both dataframes by month, merge, and get basic statistics;
+			note that when grouping, we keep the new_confirmed column for future statistics calculation;
+    allcrime_newdeceased_month_stats.SCALA:read in both crime and covid data;
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			group both dataframes by month, merge, and get basic statistics;
+			note that when grouping, we keep the new_deceased column for future statistics calculation;
   correlation_analysis:
-    allcrime_newcomfirmed_day_corr.SCALA:
-    allcrime_newcomfirmed_month_corr.SCALA:
-    allcrime_newdeceased_day_corr.SCALA:
-    allcrime_newdeceased_month_corr.SCALA:
+    allcrime_newcomfirmed_day_corr.SCALA: read in both crime and covid data;
+			truncate datasets to span the same period of time (2020-01-23 to 2020-12-31)
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			calculate correlation coefficient between covid new confirmed and crime count (all types) by day;
+    allcrime_newcomfirmed_month_corr.SCALA: read in both crime and covid data;
+			truncate datasets to span the same period of time (2020-01-23 to 2020-12-31)
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			group both dataframe (covid and crime) by month and get the mean of covid new confirmed
+			calculate correlation coefficient between mean of covid new confirmed and crime count (all types) by month;
+    allcrime_newdeceased_day_corr.SCALA:read in both crime and covid data;
+			truncate datasets to span the same period of time (2020-01-23 to 2020-12-31)
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			calculate correlation coefficient between covid new deceased and crime count (all types) by day;
+    allcrime_newdeceased_month_corr.SCALA:read in both crime and covid data;
+			truncate datasets to span the same period of time (2020-01-23 to 2020-12-31)
+			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+			group both dataframe (covid and crime) by month and get the mean of covid new deceased
+			calculate correlation coefficient between mean of covid new deceased and crime count (all types) by month;
     typecrime_newconfirmed_day_corr.SCALA:
       the code finds correlation between daily newconfirmed covide cases and the number of four types of crime incidents
       the four incidents are Robbery, Felony assult, Sex crimes, and Harrassment 2.
@@ -64,8 +86,37 @@ ana_code:
 	//in 2019 before covid Friday is when crime happen most frequently
 	//in 2020 after covid Friday is when crime happen most frequently
 	//There is not much difference except for all days in a week, crime happen less after covid
+    covid_month_day_series.SCALA:
+	note that the covid dataset contains these columns: new_confirmed, new_deceased, new_recovered, total_confirmed, total_deceased
+	read in covid dataset as a dataframe;
+	truncate the dataframe to span 2020-01-23 to 2020-12-31
+	extract the new_confirmed column into a sepearte dataframe, and write as an single output
+	do the same for new_deceased, new_recovered, total_confirmed, total_deceased
+	then, group the dataframes based on month and sum each of the five columns
+	write 5 new outputs based on these grouped and summed output
+	note: this file and the process within, aims to produce neatly formatted time series data so as to make good plots
+	note: it is hard to direclty understand all these time series data, but with a graph like line plot, the overall trend will be clear
+    crime_day_night.SCALA:
+	read in crime dataset as dataframe
+	det rid of uncessary columns, keeping the column which records the exact time of the crimes
+	truncate the dataframe to span 2019-01-01 to 2020-12-31
+	create two separate dataframes based on whether the crime happened before covid or after (based on the first covid incident which occured on 2020-02-28)
+	group both dataframes based on hour (0-23) and count the total crime happened during those hours throughout the entire before/after-covid period
+	order the entries based on count of crimes
+	note: this analysis can show us whether the crime-popular hour/time of the day changes before and after covid
+    crime_covid_regression.SCALA:
+	read in both crime and covid dataset as dataframes
+	filter the covid dataset to contain only nyc data and span the period of 2020-01-23 to 2021-01-01
+	merge to datasets based on date
+	prepare for regression:
+		select new_confirmed, new_deceased, and new_recovered as features, and crime count as label
+		initialize linear regression model
+		fit the dataframe
+		output:
+			number of iterations, objective history, RMSE, r2, coefficients and intercept
+	note: this analysis does not gurantee any causal inference, we focus on how each feature about covid relates to crime count (by observing the coefficients)
 
-***All csv can be found on project_data folder in hm1920's hdfs
+***All imput data (imported csv) can be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs
 
 How to run my code:
 1. follow the instruction in data_ingest/data_ingest.txt
