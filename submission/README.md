@@ -3,19 +3,19 @@
   **data_ingest.txt** explains how the data is manually downloaded from its original website
   and then uploaded to hdfs 
 ## etl_code:
-  **wes**:
-    initial cleaning code by wesley wang using mapreduce
-    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code
-  **kyle**:
-    initial cleaning code by kyle ma using mapreduce
-    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code
+  **wes**:\\
+    initial cleaning code by wesley wang using mapreduce\\
+    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code\\
+  **kyle**:\\
+    initial cleaning code by kyle ma using mapreduce\\
+    **Clean.java**, **CleanMapper.java**, **CleanReducer.java** are the cleaning code\\
 ## profiling_code:
-  **wes**:
-    initial profiling code by wesley wang using mapreduce
-    **CountRecs.java**, **CountRecsMapper.java**, **ountRecsReducer.java** are the profiling code
-  **kyle**:
-    initial profiling code by kyle ma using mapreduce
-    **CountRecs.java**, **CountRecsMapper.java**, **CountRecsReducer.java** are the profiling code
+  **wes**:\\
+    initial profiling code by wesley wang using mapreduce\\
+    **CountRecs.java**, **CountRecsMapper.java**, **ountRecsReducer.java** are the profiling code\\
+  **kyle**:\\
+    initial profiling code by kyle ma using mapreduce\\
+    **CountRecs.java**, **CountRecsMapper.java**, **CountRecsReducer.java** are the profiling code\\
 ## ana_code:
   additional_process
     additional_process.SCALA
