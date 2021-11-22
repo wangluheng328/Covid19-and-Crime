@@ -165,19 +165,19 @@ How to run my code:
       - similar to above, just use :load allcrime_newconfirmed_month_stats.scala
       - the stats for mean crime and mean new_confirmed by month are printed out (see `bs_allcrime_new_confirmed_month.png`)
 8. Additional Analysis
-    - crime_month_before_after
+    - crime_month_before_after.scala
       - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
       - make sure that crime_new.csv is also on hdfs
       - run by open spark and type command :load crime_month_before_after.scala 
       - the crime count from 2019 and 2020 grouped by month will be printed on the screen
       - the crime count from 2019 and 2020 grouped by month and type will be output as csv
       - month_type_2019.csv and month_type_2020.csv
-    - crime_weekday_before_after
+    - crime_weekday_before_after.scala
       - put crime_weekday_before_after.scala from ana_code/additional_analysis folder to hdfs
       - makesure that crime_new.csv is also on hdfs
       - run by open spark and type command :load crime_weekday_before_after.scala 
       - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
-    - covid_month_day_series.scala
+    - covid_month_day_series.scala.scala
       - put covid_month_day_series.scala from ana_code/additional_analysis folder to hdfs
       - run by open spark and type command :load covid_month_day_series.scala 
       - note that there is not outputting printout for this one, instead if will creates 10 directories in the /stage2 folder
@@ -195,9 +195,26 @@ How to run my code:
       
 
 9. Correlation Analysis
-    typecrime_newconfirmed_day_corr
-      put typecrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
-      makesure that crime_type.csv and epid_clean.csv are also on hdfs
-      run by open spark and type command :load typecrime_newconfirmed_day_corr.scala
-      the correlation between four types of crime counts and daily counts of newly confirmed covid cases 
-      will be print on the screen
+    - typecrime_newconfirmed_day_corr.scala
+      - put typecrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - make sure that crime_type.csv and epid_clean.csv are also on hdfs
+      - run by open spark and type command :load typecrime_newconfirmed_day_corr.scala
+      - the correlation between four types of crime counts and daily counts of newly confirmed covid cases will be print on the screen
+    - allcrime_newconfirmed_day_corr.scala
+      - put allcrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newconfirmed_day_corr.scala
+      - a correlation coefficient of -0.6756 will be printed (please refer to screenshot named `ca_newconfirmed_day.png`)
+    - allcrime_newdeceased_day_corr.scala
+      - put allcrime_newdeceased_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newdeceased_day_corr.scala
+      - a correlation coefficient of -0.6670 will be printed (please refer to screenshot named `ca_newdeceased_day.png`)
+    - allcrime_newconfirmed_month_corr.scala
+      - put allcrime_newconfirmed_month_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newconfirmed_month_corr.scala
+      - a correlation coefficient of -0.8915 will be printed (please refer to screenshot named `ca_newconfirmed_month.png`)
+    - allcrime_newdeceased_month_corr.scala
+      - put allcrime_newdeceased_month_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newdeceased_month_corr.scala
+      - a correlation coefficient of -0.8450 will be printed (please refer to screenshot named `ca_newdeceased_month.png`)
+
+
