@@ -1,4 +1,101 @@
 # Submission readme
+
+
+## How to run my code:
+**Note: descriptions of each code file are down below**
+**All imput data (imported csv) can be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs**
+**If you'd like to run our code, there's no need to manually upload the data, since you get just use our directories**
+1. follow the instruction in data_ingest/data_ingest.txt\
+   download the data sets and put them to hdfs\
+   result can be found in project_data/crime.csv and project_data/epid.csv\
+   due to storage issue data folder is not included in the assignment submission\
+   they can be found on the hdfs
+2. run the mapreduce job Clean.java in etl_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
+   the input is: crime.csv\
+   the output is cleaned data: crime_new.csv
+3. run the mapreduce job Clean.java in etl_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
+   the input is: epid.csv\
+   the output is cleaned data: epid_new.csv
+4. run the mapreduce job CountRecs.java in profiling_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
+   the input is: crime_new.csv\
+   the output is row count of the input data\
+   this gives a better idea of the output csv files from Clean.java
+5. run the mapreduce job CountRecs.java in profiling_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
+   the input is: epid_new.csv\
+   the output is row count of the input data\
+   this gives a better idea of the output csv files from Clean.java
+6. Additional_Process\
+   put the additional_process.scala from ana_code/additional_process folder to hdfs\
+   make sure that both epid_new.csv and crime_new.csv are also put on the cluster\
+   run by open spark and type command :load additional_process.scala\
+   a few desmonstration will show on the command prompt and three output csv will be created
+7. Basic statistics
+    - **all data files needed are already in HDFS of lw2534**
+    - allcrime_day_stats.scala
+      - put allcrime_day_stats.scala from ana_code/basic_statistics folder to hdfs
+      - run by open spark and type command :load allcrime_day_stats.scala 
+      - the statistics for crime and covid will be printed out (see `bs_allcrime_day_stats.png`)
+    - allcrime_newdeceased_month_stats.scala
+      - similar to above, just use :load allcrime_newdeceased_month_stats.scala
+      - the stats for mean crime and mean new_deceased by month are printed out (see `bs_allcrime_new_deceased_month.png`)
+    - allcrime_newconfirmed_month_stats.scala
+      - similar to above, just use :load allcrime_newconfirmed_month_stats.scala
+      - the stats for mean crime and mean new_confirmed by month are printed out (see `bs_allcrime_new_confirmed_month.png`)
+8. Additional Analysis
+    - crime_month_before_after.scala
+      - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
+      - make sure that crime_new.csv is also on hdfs
+      - run by open spark and type command :load crime_month_before_after.scala 
+      - the crime count from 2019 and 2020 grouped by month will be printed on the screen
+      - the crime count from 2019 and 2020 grouped by month and type will be output as csv
+      - month_type_2019.csv and month_type_2020.csv
+    - crime_weekday_before_after.scala
+      - put crime_weekday_before_after.scala from ana_code/additional_analysis folder to hdfs
+      - makesure that crime_new.csv is also on hdfs
+      - run by open spark and type command :load crime_weekday_before_after.scala 
+      - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
+    - covid_month_day_series.scala.scala
+      - put covid_month_day_series.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load covid_month_day_series.scala 
+      - note that there is not outputting printout for this one, instead if will creates 10 directories in the /stage2 folder
+      - please refer to screenshots named `aa_timeseries_1.png` and `aa_timeseries_2.png`
+    - crime_day_night.scala
+      - put crime_day_night.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load crime_day_night.scala 
+      - there will be two dataframes being printed
+      - please refer to screenshots named `aa_daynight_before_after.png`
+    - crime_covid_regression.scala
+      - put crime_covid_regression.scala from ana_code/additional_analysis folder to hdfs
+      - run by open spark and type command :load crime_covid_regression.scala 
+      - there will be several outputs of the regression model being printed
+      - please refer to screenshots named `aa_regression.png`
+      
+
+9. Correlation Analysis
+    - typecrime_newconfirmed_day_corr.scala
+      - put typecrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - make sure that crime_type.csv and epid_clean.csv are also on hdfs
+      - run by open spark and type command :load typecrime_newconfirmed_day_corr.scala
+      - the correlation between four types of crime counts and daily counts of newly confirmed covid cases will be print on the screen
+    - allcrime_newconfirmed_day_corr.scala
+      - put allcrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newconfirmed_day_corr.scala
+      - a correlation coefficient of -0.6756 will be printed (please refer to screenshot named `ca_newconfirmed_day.png`)
+    - allcrime_newdeceased_day_corr.scala
+      - put allcrime_newdeceased_day_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newdeceased_day_corr.scala
+      - a correlation coefficient of -0.6670 will be printed (please refer to screenshot named `ca_newdeceased_day.png`)
+    - allcrime_newconfirmed_month_corr.scala
+      - put allcrime_newconfirmed_month_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newconfirmed_month_corr.scala
+      - a correlation coefficient of -0.8915 will be printed (please refer to screenshot named `ca_newconfirmed_month.png`)
+    - allcrime_newdeceased_month_corr.scala
+      - put allcrime_newdeceased_month_corr.scala from ana_code/correlation_analysis folder to hdfs
+      - run by open spark and type command :load allcrime_newdeceased_month_corr.scala
+      - a correlation coefficient of -0.8450 will be printed (please refer to screenshot named `ca_newdeceased_month.png`)
+
+
+
 ## data_ingest:
   **data_ingest.txt** explains how the data is manually downloaded from its original website
   and then uploaded to hdfs 
@@ -124,97 +221,3 @@
         - fit the dataframe
         - output: number of iterations, objective history, RMSE, r2, coefficients and intercept
       * note: this analysis does not gurantee any causal inference, we focus on how each feature about covid relates to crime count (by observing the coefficients)
-
-***All imput data (imported csv) can be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs
-
-How to run my code:
-1. follow the instruction in data_ingest/data_ingest.txt\
-   download the data sets and put them to hdfs\
-   result can be found in project_data/crime.csv and project_data/epid.csv\
-   due to storage issue data folder is not included in the assignment submission\
-   they can be found on the hdfs
-2. run the mapreduce job Clean.java in etl_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
-   the input is: crime.csv\
-   the output is cleaned data: crime_new.csv
-3. run the mapreduce job Clean.java in etl_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
-   the input is: epid.csv\
-   the output is cleaned data: epid_new.csv
-4. run the mapreduce job CountRecs.java in profiling_code/wes following the normal procedure of running mapreduce jobs on nyu cluster\
-   the input is: crime_new.csv\
-   the output is row count of the input data\
-   this gives a better idea of the output csv files from Clean.java
-5. run the mapreduce job CountRecs.java in profiling_code/kyle following the normal procedure of running mapreduce jobs on nyu cluster\
-   the input is: epid_new.csv\
-   the output is row count of the input data\
-   this gives a better idea of the output csv files from Clean.java
-6. Additional_Process\
-   put the additional_process.scala from ana_code/additional_process folder to hdfs\
-   make sure that both epid_new.csv and crime_new.csv are also put on the cluster\
-   run by open spark and type command :load additional_process.scala\
-   a few desmonstration will show on the command prompt and three output csv will be created
-7. Basic statistics
-    - **all data files needed are already in HDFS of lw2534**
-    - allcrime_day_stats.scala
-      - put allcrime_day_stats.scala from ana_code/basic_statistics folder to hdfs
-      - run by open spark and type command :load allcrime_day_stats.scala 
-      - the statistics for crime and covid will be printed out (see `bs_allcrime_day_stats.png`)
-    - allcrime_newdeceased_month_stats.scala
-      - similar to above, just use :load allcrime_newdeceased_month_stats.scala
-      - the stats for mean crime and mean new_deceased by month are printed out (see `bs_allcrime_new_deceased_month.png`)
-    - allcrime_newconfirmed_month_stats.scala
-      - similar to above, just use :load allcrime_newconfirmed_month_stats.scala
-      - the stats for mean crime and mean new_confirmed by month are printed out (see `bs_allcrime_new_confirmed_month.png`)
-8. Additional Analysis
-    - crime_month_before_after.scala
-      - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
-      - make sure that crime_new.csv is also on hdfs
-      - run by open spark and type command :load crime_month_before_after.scala 
-      - the crime count from 2019 and 2020 grouped by month will be printed on the screen
-      - the crime count from 2019 and 2020 grouped by month and type will be output as csv
-      - month_type_2019.csv and month_type_2020.csv
-    - crime_weekday_before_after.scala
-      - put crime_weekday_before_after.scala from ana_code/additional_analysis folder to hdfs
-      - makesure that crime_new.csv is also on hdfs
-      - run by open spark and type command :load crime_weekday_before_after.scala 
-      - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
-    - covid_month_day_series.scala.scala
-      - put covid_month_day_series.scala from ana_code/additional_analysis folder to hdfs
-      - run by open spark and type command :load covid_month_day_series.scala 
-      - note that there is not outputting printout for this one, instead if will creates 10 directories in the /stage2 folder
-      - please refer to screenshots named `aa_timeseries_1.png` and `aa_timeseries_2.png`
-    - crime_day_night.scala
-      - put crime_day_night.scala from ana_code/additional_analysis folder to hdfs
-      - run by open spark and type command :load crime_day_night.scala 
-      - there will be two dataframes being printed
-      - please refer to screenshots named `aa_daynight_before_after.png`
-    - crime_covid_regression.scala
-      - put crime_covid_regression.scala from ana_code/additional_analysis folder to hdfs
-      - run by open spark and type command :load crime_covid_regression.scala 
-      - there will be several outputs of the regression model being printed
-      - please refer to screenshots named `aa_regression.png`
-      
-
-9. Correlation Analysis
-    - typecrime_newconfirmed_day_corr.scala
-      - put typecrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
-      - make sure that crime_type.csv and epid_clean.csv are also on hdfs
-      - run by open spark and type command :load typecrime_newconfirmed_day_corr.scala
-      - the correlation between four types of crime counts and daily counts of newly confirmed covid cases will be print on the screen
-    - allcrime_newconfirmed_day_corr.scala
-      - put allcrime_newconfirmed_day_corr.scala from ana_code/correlation_analysis folder to hdfs
-      - run by open spark and type command :load allcrime_newconfirmed_day_corr.scala
-      - a correlation coefficient of -0.6756 will be printed (please refer to screenshot named `ca_newconfirmed_day.png`)
-    - allcrime_newdeceased_day_corr.scala
-      - put allcrime_newdeceased_day_corr.scala from ana_code/correlation_analysis folder to hdfs
-      - run by open spark and type command :load allcrime_newdeceased_day_corr.scala
-      - a correlation coefficient of -0.6670 will be printed (please refer to screenshot named `ca_newdeceased_day.png`)
-    - allcrime_newconfirmed_month_corr.scala
-      - put allcrime_newconfirmed_month_corr.scala from ana_code/correlation_analysis folder to hdfs
-      - run by open spark and type command :load allcrime_newconfirmed_month_corr.scala
-      - a correlation coefficient of -0.8915 will be printed (please refer to screenshot named `ca_newconfirmed_month.png`)
-    - allcrime_newdeceased_month_corr.scala
-      - put allcrime_newdeceased_month_corr.scala from ana_code/correlation_analysis folder to hdfs
-      - run by open spark and type command :load allcrime_newdeceased_month_corr.scala
-      - a correlation coefficient of -0.8450 will be printed (please refer to screenshot named `ca_newdeceased_month.png`)
-
-
