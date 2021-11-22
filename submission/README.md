@@ -32,8 +32,8 @@
       * a few demonstrations would be shown on the interface in the process
   - **basic_statistics**:
     - **allcrime_day_stats.SCALA**: 
-      	* read in both crime and covid data;
-	* get rid of covid data in NY areas other than NYC since crime data are for NYC only;
+      	* read in both crime and covid data
+	* get rid of covid data in NY areas other than NYC since crime data are for NYC only
 	* merge covid and crime dataframes and get basic statistics for both (mean, median, max, min, etc.)
     allcrime_newconfirmed_month_stats.SCALA:read in both crime and covid data;
 			get rid of covid data in NY areas other than NYC since crime data are for NYC only;
