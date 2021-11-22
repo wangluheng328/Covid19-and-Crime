@@ -158,18 +158,18 @@ How to run my code:
    a few desmonstration will show on the command prompt and three output csv will be created
 7. Basic statistics\
 8. Additional Analysis\
-	- crime_month_before_after
-          - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
-          - make sure that crime_new.csv is also on hdfs
-          - run by open spark and type command :load crime_month_before_after.scala 
-          - the crime count from 2019 and 2020 grouped by month will be printed on the screen
-          - the crime count from 2019 and 2020 grouped by month and type will be output as csv
-          - month_type_2019.csv and month_type_2020.csv
-	- crime_weekday_before_after
-          - put crime_weekday_before_after.scala from ana_code/additional_analysis folder to hdfs
-          - makesure that crime_new.csv is also on hdfs
-          - run by open spark and type command :load crime_weekday_before_after.scala 
-          - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
+    - crime_month_before_after
+      - put crime_month_before_after.scala from ana_code/additional_analysis folder to hdfs
+      - make sure that crime_new.csv is also on hdfs
+      - run by open spark and type command :load crime_month_before_after.scala 
+      - the crime count from 2019 and 2020 grouped by month will be printed on the screen
+      - the crime count from 2019 and 2020 grouped by month and type will be output as csv
+      - month_type_2019.csv and month_type_2020.csv
+    - crime_weekday_before_after
+      - put crime_weekday_before_after.scala from ana_code/additional_analysis folder to hdfs
+      - makesure that crime_new.csv is also on hdfs
+      - run by open spark and type command :load crime_weekday_before_after.scala 
+      - the crime count from 2019 and 2020 grouped by weekday will be printed on the screen
       
 
 9. Correlation Analysis
