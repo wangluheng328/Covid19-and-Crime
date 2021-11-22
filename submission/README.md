@@ -1,11 +1,11 @@
 # Submission readme
 ## data_ingest:
-  data_ingest.txt explains how the data is manually downloaded from its original website
+  `data_ingest.txt` explains how the data is manually downloaded from its original website
   and then uploaded to hdfs 
 ## etl_code:
   ##### wes:
-    initial cleaning code by wesley wang using mapreduce
-    Clean.java, CleanMapper.java, CleanReducer.java are the cleaning code
+	initial cleaning code by wesley wang using mapreduce
+    	Clean.java, CleanMapper.java, CleanReducer.java are the cleaning code
   ##### kyle:
     initial cleaning code by kyle ma using mapreduce
     Clean.java, CleanMapper.java, CleanReducer.java are the cleaning code
