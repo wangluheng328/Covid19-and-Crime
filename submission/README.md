@@ -4,11 +4,11 @@
   and then uploaded to hdfs 
 ## etl_code:
   ##### wes:
-	initial cleaning code by wesley wang using mapreduce
-    	Clean.java, CleanMapper.java, CleanReducer.java are the cleaning code
+    initial cleaning code by wesley wang using mapreduce
+    `Clean.java`, `CleanMapper.java`, `CleanReducer.java` are the cleaning code
   ##### kyle:
     initial cleaning code by kyle ma using mapreduce
-    Clean.java, CleanMapper.java, CleanReducer.java are the cleaning code
+    `Clean.java`, `CleanMapper.java`, `CleanReducer.java` are the cleaning code
 ## profiling_code:
   ##### wes:
     initial profiling code by wesley wang using mapreduce
