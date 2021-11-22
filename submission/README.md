@@ -4,6 +4,7 @@
 ## How to run my code:
 **Note: descriptions of each code file are down below**\
 **All imput data (imported csv) can be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs**\
+**All output csv can also be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs**\
 **If you'd like to run our code, there's no need to manually upload the data, since you get just use our directories**
 1. follow the instruction in data_ingest/data_ingest.txt\
    download the data sets and put them to hdfs\
