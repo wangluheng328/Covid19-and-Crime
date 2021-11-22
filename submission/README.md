@@ -119,10 +119,10 @@
       * filter the covid dataset to contain only nyc data and span the period of 2020-01-23 to 2021-01-01
       * merge to datasets based on date
       - prepare for regression:
-	- select new_confirmed, new_deceased, and new_recovered as features, and crime count as label
-	- initialize linear regression model
-	- fit the dataframe
-	- output: number of iterations, objective history, RMSE, r2, coefficients and intercept
+        - select new_confirmed, new_deceased, and new_recovered as features, and crime count as label
+        - initialize linear regression model
+        - fit the dataframe
+        - output: number of iterations, objective history, RMSE, r2, coefficients and intercept
       * note: this analysis does not gurantee any causal inference, we focus on how each feature about covid relates to crime count (by observing the coefficients)
 
 ***All imput data (imported csv) can be found on 1.project_data folder in hm1920's hdfs or 2. stage2 folder in lw2534's hdfs
